@@ -1,0 +1,13 @@
+The Scenario:
+You are making a simple game. You want to save the player's "High Score" to a text file so it’s there the next time they play.
+
+Your Task:
+
+Define a variable called new_score (you can set it to any number, e.g., 150).
+
+Write to a file: Create (or open) a file named highscore.txt and write that number into it.
+
+Read from the file: Immediately after writing, open that same file, read the value back out, and print: "The saved high score is: [value]"
+
+Hint for Beginners:
+The safest way to handle files in Python is using the with keyword. It automatically closes the file for you even if something goes wrong.
