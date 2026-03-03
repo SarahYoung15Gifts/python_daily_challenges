@@ -1,0 +1,17 @@
+You are building a "Trip Calculator." You want a function that tells you how much a road trip will cost based on the distance, the car's fuel efficiency, and the price of gas.
+
+Your Task:Define a function called calculate_trip_cost.
+
+The function should take three arguments:
+miles (Total distance)
+mpg (Miles per gallon the car gets)
+price_per_gallon (Current cost of gas)
+
+Inside the function, calculate the total cost using this logic:
+Total cost = (miles/mpg) * price_per_gallon
+
+The function should return the result.
+
+Call the function with these values: 300 miles, 25 mpg, and $3.50 per gallon.
+
+Print the result formatted to 2 decimal places (e.g., "$42.00").
