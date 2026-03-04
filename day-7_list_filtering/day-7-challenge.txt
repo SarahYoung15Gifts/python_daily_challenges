@@ -1,0 +1,17 @@
+The Scenario:
+You have a list of temperatures recorded over a week. You need to "filter" this list to find only the days where it was above 75°F (to know when to turn on the AC).
+
+Your Task:
+
+Start with this list: temps = [68, 82, 71, 89, 74, 81, 65]
+
+Use a loop (or a list comprehension if you're feeling bold!) to create a new list called hot_days.
+
+Inside the loop, check if each temperature is greater than 75.
+
+Print the final hot_days list.
+
+Bonus: Print how many hot days there were in total using the len() function.
+
+Hint for Beginners:
+If you use a standard loop, start with an empty list hot_days = [] and use the .append() method to add numbers to it as you find them.
