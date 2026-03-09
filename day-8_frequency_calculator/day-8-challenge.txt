@@ -1,0 +1,16 @@
+The Scenario:
+You have a list of votes for a favorite fruit. You need to count how many votes each fruit received. This is a classic pattern called a "frequency map."
+
+Your Task:
+
+Start with this list: votes = ["apple", "banana", "apple", "cherry", "apple", "banana", "cherry", "cherry", "apple"]
+
+Create an empty dictionary called vote_count.
+
+Loop through the list of votes.
+
+Logic: * If the fruit is already in the dictionary, increase its count by 1.
+
+If the fruit is not in the dictionary, add it as a new key with a starting value of 1.
+
+Print the final dictionary.
