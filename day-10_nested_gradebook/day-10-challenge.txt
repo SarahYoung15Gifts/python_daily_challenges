@@ -1,0 +1,20 @@
+The Scenario:
+In the real world, data isn't just a list of strings; it's often a "list of dictionaries" (similar to how a database or a JSON API might send you information). You are a teacher managing a small classroom, and you need to calculate the average grade for each student.
+
+Your Task:
+
+Use this data structure:
+students = [
+    {"name": "Alice", "grades": [85, 90, 92]},
+    {"name": "Bob", "grades": [70, 68, 72]},
+    {"name": "Charlie", "grades": [100, 95, 98]}
+]
+
+Loop through the list of students.
+
+For each student, calculate their average grade.
+
+Print a summary in this format:
+Alice: Average = 89.0
+
+Identify the "Star Student": Keep track of who has the highest average and print their name at the end: "Star Student: Charlie".
