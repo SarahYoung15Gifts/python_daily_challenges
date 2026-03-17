@@ -1,0 +1,22 @@
+The Scenario:
+You are building a registration system that requires a "Strong Password." Instead of one giant block of code, you want to build a reusable validator function.
+
+Your Task:
+
+Define a function called is_strong(password).
+
+Inside the function, check these three conditions:
+
+Length is at least 10 characters.
+
+Contains at least one uppercase letter (Hint: any(c.isupper() for c in password)).
+
+Contains at least one special character from this list: !@#$%^&*
+
+The function should return True if all conditions are met, otherwise return False.
+
+In your main code:
+
+Create a list of passwords to test: test_passwords = ["12345", "pythonisgreat!", "LearningPython123!", "CheckMe@123"]
+
+Loop through the list and use your function to print whether each one is "Valid" or "Invalid."

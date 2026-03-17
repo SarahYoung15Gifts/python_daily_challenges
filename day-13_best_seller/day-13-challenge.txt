@@ -1,0 +1,29 @@
+The Scenario:
+You are helping a small shop review a day's sales. Each sale record includes an item name, quantity sold, and price per item. Your job is to write a program that calculates totals and finds the best-selling item.
+
+Your Task:
+
+Use this data structure:
+sales = [
+	{"item": "Notebook", "quantity": 4, "price": 2.50},
+	{"item": "Pen", "quantity": 10, "price": 1.20},
+	{"item": "Backpack", "quantity": 2, "price": 18.00},
+	{"item": "Notebook", "quantity": 3, "price": 2.50}
+]
+
+Create a function called calculate_sale_total(sale) that returns the total value of one sale.
+
+Loop through the sales list and print each item in this format:
+Notebook: 4 x $2.50 = $10.00
+
+Keep track of the overall revenue and print it at the end in this format:
+Total Revenue: $65.50
+
+Also determine which item sold the highest total quantity across all sales records.
+
+Print the result in this format:
+Best-Selling Item: Pen
+
+Bonus:
+
+If two items tie for the highest quantity sold, print both item names.
