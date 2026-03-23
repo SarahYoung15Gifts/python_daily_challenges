@@ -1,0 +1,24 @@
+The Scenario:
+You have a string representing a list of employees. Each line is Name,Department,Salary. You need to parse this string and find the total payroll (sum of all salaries) for the Sales department.
+
+Your Task:
+
+Use this "CSV" string:
+
+Python
+raw_data = """John,Sales,50000
+Jane,Engineering,70000
+Joe,Sales,60000
+Janet,Marketing,55000
+Jack,Sales,45000"""
+Split the string into individual lines (Hint: .splitlines()).
+
+Loop through the lines and split each line by the comma ,.
+
+Filter and Calculate:
+
+If the department is "Sales", add the salary to a total_sales_payroll variable.
+
+Note: Remember to convert the salary string to an int before adding!
+
+Print the final total.
