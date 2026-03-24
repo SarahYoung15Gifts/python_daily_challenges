@@ -1,0 +1,18 @@
+The Scenario:
+You have the same employee data, but you want to calculate the total payroll for every department that exists in the list, without knowing what they are beforehand.
+
+Your Task:
+
+Use the same raw_data string from yesterday.
+
+Create an empty dictionary called department_totals.
+
+Loop through the lines:
+
+Split the line into name, dept, and salary.
+
+Logic: * If the dept is already a key in department_totals, add the salary to its current value.
+
+If it is not there, create the key and set its value to the salary.
+
+Print the final dictionary.
