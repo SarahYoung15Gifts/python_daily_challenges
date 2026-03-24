@@ -16,3 +16,5 @@ Logic: * If the dept is already a key in department_totals, add the salary to it
 If it is not there, create the key and set its value to the salary.
 
 Print the final dictionary.
+
+.
