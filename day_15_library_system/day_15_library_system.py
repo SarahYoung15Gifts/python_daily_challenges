@@ -17,8 +17,8 @@ class LibraryItem:
 
     # This method prints the basic item information.
     def get_info(self):
-        # Print the title and year in one line.
-        print(f"Title: {self.title}, Year: {self.year}")
+        # Return the title and year in one line.
+        return f"Title: {self.title}, Year: {self.year}"
 
 
 # This class represents a book and inherits from LibraryItem.
@@ -32,10 +32,8 @@ class Book(LibraryItem):
 
     # This method prints book information.
     def get_info(self):
-        # Print the title and year from the parent class method.
-        super().get_info()
-        # Print the author on a new line.
-        print(f"Author: {self.author}")
+        # Return the title, year, and author as a formatted string.
+        return f"{super().get_info()}\nAuthor: {self.author}"
 
 
 # This function checks if a title has only letters, numbers, spaces, and punctuation.
@@ -172,7 +170,7 @@ def main():
     # Loop through every book in the list.
     for item in books:
         # Print each book's information.
-        item.get_info()
+        print(item.get_info())
         # Print a blank line for readability.
         print()
 

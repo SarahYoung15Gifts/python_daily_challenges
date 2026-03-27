@@ -7,15 +7,17 @@ messy_list = [
 	"   EVE",
 ]
 
-def main():
-	# A new variable 'clean_list' is created using 'list comprehension'. 'name' is a temporary variable that takes each value from 'messy_list' one by one. 
-	# The 'strip()' method removes any leading and trailing whitespace from the name, and the 'capitalize()' method converts the first character to uppercase and the rest to lowercase. 
-	# The resulting cleaned names are stored in 'clean_list'.
-	clean_list = [name.strip().capitalize() for name in messy_list]
+def clean_names(names):
+	return [name.strip().capitalize() for name in names]
 
-	# The code then iterates over each name in 'clean_list' and prints a personalized invitation message for each name.
-	for name in clean_list:
-		print(f"You are invited, {name}!")
+
+def build_invitation_messages(names):
+	return [f"You are invited, {name}!" for name in names]
+
+
+def main():
+	for message in build_invitation_messages(clean_names(messy_list)):
+		print(message)
 
 
 if __name__ == "__main__":

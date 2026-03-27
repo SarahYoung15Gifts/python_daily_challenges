@@ -4,22 +4,18 @@ class TaskManager:
 
     def add_task(self, task_name):
         self.tasks.append(task_name)
-        print(f"Task '{task_name}' added.")
+        return f"Task '{task_name}' added."
 
     def show_tasks(self):
         if not self.tasks:
-            print("No tasks yet!")
-        else:
-            print("Tasks:")
-            for idx, task in enumerate(self.tasks, 1):
-                print(f"{idx}. {task}")
+            return ["No tasks yet!"]
+        return ["Tasks:"] + [f"{idx}. {task}" for idx, task in enumerate(self.tasks, 1)]
 
     def remove_task(self, task_index):
         if 0 <= task_index < len(self.tasks):
             removed_task = self.tasks.pop(task_index)
-            print(f"Task '{removed_task}' removed.")
-        else:
-            print("Invalid task index.")
+            return f"Task '{removed_task}' removed."
+        return "Invalid task index."
 
 
 def main():
@@ -30,13 +26,14 @@ def main():
 
         if choice == "1":
             task_name = input("Enter task name: ")
-            task_manager.add_task(task_name)
+            print(task_manager.add_task(task_name))
         elif choice == "2":
-            task_manager.show_tasks()
+            for line in task_manager.show_tasks():
+                print(line)
         elif choice == "3":
             try:
                 task_index = int(input("Enter task number you would like to remove: ")) - 1
-                task_manager.remove_task(task_index)
+                print(task_manager.remove_task(task_index))
             except ValueError:
                 print("Please enter a number only.")
         elif choice == "4":

@@ -8,14 +8,17 @@ def is_strong(password):
     return True
 
 
+def describe_password(password):
+    if is_strong(password):
+        return f"{password} is a valid password."
+    return f"{password} is an invalid password."
+
+
 def main():
     test_passwords = ["12345", "pythonisgreat!", "LearningPython123!", "CheckMe@123"]
 
     for pwd in test_passwords:
-        if is_strong(pwd):
-            print(f"{pwd} is a valid password.")
-        else:
-            print(f"{pwd} is an invalid password.")
+        print(describe_password(pwd))
 
 
 if __name__ == "__main__":

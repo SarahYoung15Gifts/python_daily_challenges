@@ -1,19 +1,19 @@
 # A variable called 'Inventory' with a dictionary containing items and their quantities.
 inventory = {"Apples": 50, "Bananas": 5, "Cherries": 0, "Dates": 20, "Eggplant": 8}
 
-def main():
-    # a 'for loop' is used to iterate through each item and its quantity in the 'inventory' dictionary.
-    for item, qty in inventory.items():
-        # If the quantity of an item is less than or equal to 0, it prints that the item is out of stock. 
+def get_inventory_alerts(items):
+    alerts = []
+    for item, qty in items.items():
         if qty <= 0:
-            print(f"{item} is out of stock")
-            #If the quantity is less than 10, it prints that the item is low in stock along with the remaining quantity.
-            #an 'elif' statement is used to handle multiple conditions. 
+            alerts.append(f"{item} is out of stock")
         elif qty < 10:
-            print(f"{item} is low in stock ({qty} left)")
-        #If the quantity is 10 or more, it does nothing (passes).
-        else:
-            pass
+            alerts.append(f"{item} is low in stock ({qty} left)")
+    return alerts
+
+
+def main():
+    for alert in get_inventory_alerts(inventory):
+        print(alert)
 
 
 if __name__ == "__main__":

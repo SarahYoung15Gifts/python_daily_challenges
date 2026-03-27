@@ -12,16 +12,20 @@ company = {
     ]
 }
 
-def main():
+def calculate_average_age(company_data):
     total_age = 0
     employee_count = 0
 
-    for department in company:
-        for employee in company[department]:
+    for employees in company_data.values():
+        for employee in employees:
             total_age += employee["age"]
             employee_count += 1
 
-    print(f"Average age of employees: {total_age / employee_count:.2f}")
+    return total_age / employee_count
+
+
+def main():
+    print(f"Average age of employees: {calculate_average_age(company):.2f}")
 
 
 if __name__ == "__main__":

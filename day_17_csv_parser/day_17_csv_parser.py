@@ -4,35 +4,36 @@ Joe,Sales,60000
 Janet,Marketing,55000
 Jack,Sales,45000"""
 
+def parse_rows(data):
+	return [line.split(",") for line in data.splitlines()]
+
+
+def calculate_payroll_totals(rows):
+	totals = {
+		"Sales": 0,
+		"Engineering": 0,
+		"Marketing": 0,
+	}
+	for row in rows:
+		department = row[1]
+		totals[department] += int(row[2])
+	totals["Total"] = sum(totals.values())
+	return totals
+
+
+def build_payroll_report(totals):
+	return [
+		f"Total Sales Payroll: {totals['Sales']}",
+		f"Total Engineering Payroll: {totals['Engineering']}",
+		f"Total Marketing Payroll: {totals['Marketing']}",
+		f"Total Payroll: {totals['Total']}",
+	]
+
+
 def main():
-	lines = raw_data.splitlines()
-
-	rows = []
-	total_sales_payroll = 0
-	total_engineering_payroll = 0
-	total_marketing_payroll = 0
-
-	for line in lines:
-		row = line.split(",")
-		rows.append(row)
-
-		if row[1] == "Sales":
-			total_sales_payroll += int(row[2])
-		if row[1] == "Engineering":
-			total_engineering_payroll += int(row[2])
-		if row[1] == "Marketing":
-			total_marketing_payroll += int(row[2])
-
-	total_payroll = (
-		total_sales_payroll
-		+ total_engineering_payroll
-		+ total_marketing_payroll
-	)
-
-	print (f"Total Sales Payroll: {total_sales_payroll}")
-	print (f"Total Engineering Payroll: {total_engineering_payroll}")
-	print (f"Total Marketing Payroll: {total_marketing_payroll}")
-	print (f"Total Payroll: {total_payroll}")
+	totals = calculate_payroll_totals(parse_rows(raw_data))
+	for line in build_payroll_report(totals):
+		print(line)
 
 
 if __name__ == "__main__":

@@ -4,19 +4,20 @@ Joe,Sales,60000
 Janet,Marketing,55000
 Jack,Sales,45000"""
 
-def main():
+def calculate_department_totals(data):
 	department_totals = {}
-
-	for line in raw_data.splitlines():
-		name, dept, salary = line.split(",")
+	for line in data.splitlines():
+		_name, dept, salary = line.split(",")
 		salary = int(salary)
-
 		if dept in department_totals:
 			department_totals[dept] += salary
 		else:
 			department_totals[dept] = salary
+	return department_totals
 
-	print(department_totals)
+
+def main():
+	print(calculate_department_totals(raw_data))
 
 
 if __name__ == "__main__":
