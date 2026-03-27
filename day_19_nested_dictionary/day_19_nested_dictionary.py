@@ -12,14 +12,19 @@ company = {
     ]
 }
 
-total_age = 0
-employee_count = 0
+def main():
+    total_age = 0
+    employee_count = 0
 
-for department in company:
-    for employee in company[department]:
-        total_age += employee["age"]
-        employee_count += 1
+    for department in company:
+        for employee in company[department]:
+            total_age += employee["age"]
+            employee_count += 1
 
-print(f"Average age of employees: {total_age / employee_count:.2f}")
+    print(f"Average age of employees: {total_age / employee_count:.2f}")
+
+
+if __name__ == "__main__":
+    main()
 
     #script to run the code: python day_19_nested_dictionary.py

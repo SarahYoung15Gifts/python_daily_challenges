@@ -1,5 +1,5 @@
-# Here we are creating a class called bank_account.
-class bank_account:
+# Here we are creating a class called BankAccount.
+class BankAccount:
 	# The __init__ method is a special method that is called when an instance of the class is created. It initialises the attributes of the class.
 	def __init__(self, owner, balance):
 		self.owner = owner
@@ -21,17 +21,22 @@ class bank_account:
 			print(f"{self.owner} withdrew ${amount}. New balance: ${self.balance}")
 
 
-# main part of the code where we create an instance of the bank_account class..
-alice_account = bank_account("Alice", 100)
-alice_account.deposit(50)
-alice_account.withdraw(20)
-alice_account.withdraw(200)
+def main():
+	# main part of the code where we create an instance of the BankAccount class..
+	alice_account = BankAccount("Alice", 100)
+	alice_account.deposit(50)
+	alice_account.withdraw(20)
+	alice_account.withdraw(200)
 
-bob_account = bank_account("Bob", 200)
-bob_account.deposit(100)
-bob_account.withdraw(50)
-bob_account.deposit(100)
-bob_account.withdraw(300)
+	bob_account = BankAccount("Bob", 200)
+	bob_account.deposit(100)
+	bob_account.withdraw(50)
+	bob_account.deposit(100)
+	bob_account.withdraw(300)
+
+
+if __name__ == "__main__":
+	main()
 
 # script to run the code in the terminal: python day_14_bank_account.py
 

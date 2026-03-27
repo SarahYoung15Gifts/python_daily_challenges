@@ -16,10 +16,15 @@ def get_median(data_list):
 	return (data_list[middle_index - 1] + data_list[middle_index]) / 2
 
 
-list_a = [10, 2, 38, 23, 38, 23, 21]
-list_b = [10, 2, 38, 23, 38, 23]
+def main():
+	list_a = [10, 2, 38, 23, 38, 23, 21]
+	list_b = [10, 2, 38, 23, 38, 23]
 
-print(f"Median for list a: {get_median(list_a)}")  # Output: Median for list a: 23
-print(f"Median for list b: {get_median(list_b)}")  # Output: Median for list b: 23.0
+	print(f"Median for list a: {get_median(list_a)}")  # Output: Median for list a: 23
+	print(f"Median for list b: {get_median(list_b)}")  # Output: Median for list b: 23.0
 
-# Run in terminal with: python day_16_the_data_sanitser.py
+
+if __name__ == "__main__":
+	main()
+
+# Run in terminal with: python day_16_the_data_sanitiser.py

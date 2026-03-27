@@ -8,13 +8,18 @@ def is_strong(password):
     return True
 
 
-test_passwords = ["12345", "pythonisgreat!", "LearningPython123!", "CheckMe@123"]
+def main():
+    test_passwords = ["12345", "pythonisgreat!", "LearningPython123!", "CheckMe@123"]
 
-for pwd in test_passwords:
-    if is_strong(pwd):
-        print(f"{pwd} is a valid password.")
-    else:
-        print(f"{pwd} is an invalid password.")
+    for pwd in test_passwords:
+        if is_strong(pwd):
+            print(f"{pwd} is a valid password.")
+        else:
+            print(f"{pwd} is an invalid password.")
+
+
+if __name__ == "__main__":
+    main()
 
 
 # script to run the modular validator: python day_12_modular_validator.py

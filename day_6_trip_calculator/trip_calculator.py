@@ -8,13 +8,18 @@ def calculate_trip_cost(miles, mpg, price_per_gallon):
 	#Finally, it returns the total cost.
 	return total_cost
 
-# float() is used to convert the user input from a string to a floating-point number, which allows for decimal values.
-miles = float(input("Enter miles: "))
-mpg = float(input("Enter mpg: "))
-price_per_gallon = float(input("Enter price per gallon: "))
+def main():
+	# float() is used to convert the user input from a string to a floating-point number, which allows for decimal values.
+	miles = float(input("Enter miles: "))
+	mpg = float(input("Enter mpg: "))
+	price_per_gallon = float(input("Enter price per gallon: "))
 
-# We call the calculate_trip_cost function with the user inputs and store the result in the variable trip_cost.
-trip_cost = calculate_trip_cost(miles, mpg, price_per_gallon)
+	# We call the calculate_trip_cost function with the user inputs and store the result in the variable trip_cost.
+	trip_cost = calculate_trip_cost(miles, mpg, price_per_gallon)
 
-# Finally, we print the trip cost formatted to two decimal places. The :.2f format specifier ensures that the output is displayed with two digits after the decimal point, which is common for currency values.
-print(f"Trip cost: ${trip_cost:.2f}")
+	# Finally, we print the trip cost formatted to two decimal places. The :.2f format specifier ensures that the output is displayed with two digits after the decimal point, which is common for currency values.
+	print(f"Trip cost: ${trip_cost:.2f}")
+
+
+if __name__ == "__main__":
+	main()
