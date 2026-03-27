@@ -1,0 +1,32 @@
+The Scenario:
+You have a "Company" object. It contains departments, and each department contains a list of employee objects. You need to write a script that calculates the Average Age of everyone in the company.
+
+Your Task:
+
+Use this nested structure:
+
+Python
+company = {
+    "Sales": [
+        {"name": "Alice", "age": 28},
+        {"name": "Bob", "age": 34}
+    ],
+    "Engineering": [
+        {"name": "Charlie", "age": 22},
+        {"name": "David", "age": 45},
+        {"name": "Eve", "age": 30}
+    ]
+}
+Logic:
+
+Initialize total_age = 0 and employee_count = 0.
+
+Use a Nested Loop:
+
+The outer loop goes through the departments (the keys).
+
+The inner loop goes through the list of employees in that department.
+
+Add each employee's age to total_age and increment the employee_count.
+
+Print the final average age (Total / Count).
