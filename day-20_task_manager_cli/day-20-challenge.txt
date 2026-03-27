@@ -1,0 +1,22 @@
+The Scenario:
+You are building a Command Line Interface (CLI) Task Manager. The user should be able to add tasks and see a list of all their tasks.
+
+Your Task:
+
+Create a Class called TaskManager.
+
+The __init__ method: Initialize an empty list called self.tasks.
+
+The add_task(task_name) method: Add the string to the self.tasks list and print a confirmation.
+
+The show_tasks() method: * If there are no tasks, print "No tasks yet!"
+
+If there are tasks, loop through them and print them with a number (e.g., 1. Buy milk).
+
+The Main Loop:
+
+Create an instance of TaskManager.
+
+Use a while True: loop to keep the program running.
+
+Ask the user: "Choose: (1) Add Task (2) Show Tasks (3) Exit".
