@@ -17,8 +17,8 @@ class LibraryItem:
 
     # This method prints the basic item information.
     def get_info(self):
-        # Print the title and year in one line.
-        print(f"Title: {self.title}, Year: {self.year}")
+        # Return the title and year in one line.
+        return f"Title: {self.title}, Year: {self.year}"
 
 
 # This class represents a book and inherits from LibraryItem.
@@ -32,10 +32,8 @@ class Book(LibraryItem):
 
     # This method prints book information.
     def get_info(self):
-        # Print the title and year from the parent class method.
-        super().get_info()
-        # Print the author on a new line.
-        print(f"Author: {self.author}")
+        # Return the title, year, and author on separate lines.
+        return f"{super().get_info()}\nAuthor: {self.author}"
 
 
 # This function checks if a title has only letters, numbers, spaces, and punctuation.
@@ -51,11 +49,14 @@ def is_valid_author(author):
 
 
 # This function asks a yes/no question and returns True for yes and False for no.
-def ask_yes_no(prompt):
+def ask_yes_no(prompt, reader=None, writer=None):
+    reader = reader or input
+    writer = writer or print
+
     # Keep asking until the user enters yes or no.
     while True:
         # Read user input and normalize it.
-        answer = input(prompt).strip().lower()
+        answer = reader(prompt).strip().lower()
         # Return True for yes answers.
         if answer in ("yes", "y"):
             return True
@@ -63,37 +64,46 @@ def ask_yes_no(prompt):
         if answer in ("no", "n"):
             return False
         # Show message for invalid yes/no input.
-        print("Please enter yes or no.")
+        writer("Please enter yes or no.")
 
 
 # This function asks for title input and handles duplicate-title decisions.
-def get_title_input(books):
+def get_title_input(books, reader=None, writer=None):
+    reader = reader or input
+    writer = writer or print
+
     # Keep asking until the user enters a valid title or chooses to finish.
     while True:
         # Ask the user to type a book title.
-        title = input("Enter book title: ").strip()
+        title = reader("Enter book title: ").strip()
         # Check if title is empty.
         if not title:
             # Show message if the title is empty.
-            print("Title cannot be empty.")
+            writer("Title cannot be empty.")
             continue
         # Check if title has invalid characters.
         if not is_valid_title(title):
             # Show message if title format is invalid.
-            print("Invalid title. Use only letters, numbers, spaces, and punctuation.")
+            writer("Invalid title. Use only letters, numbers, spaces, and punctuation.")
             continue
 
         # Check whether this title already exists.
         is_duplicate = any(item.title.lower() == title.lower() for item in books)
         # Ask if user wants to continue with duplicate title.
         if is_duplicate:
-            print("Warning: This title is already submitted.")
+            writer("Warning: This title is already submitted.")
             continue_duplicate = ask_yes_no(
-                "Would you like to continue with this title? (yes/no): "
+                "Would you like to continue with this title? (yes/no): ",
+                reader,
+                writer,
             )
             # Ask for completion if user does not want to continue with duplicate title.
             if not continue_duplicate:
-                done = ask_yes_no("Have you completed entering the data? (yes/no): ")
+                done = ask_yes_no(
+                    "Have you completed entering the data? (yes/no): ",
+                    reader,
+                    writer,
+                )
                 # End entry if the user confirms they are finished.
                 if done:
                     return "", True
@@ -105,76 +115,77 @@ def get_title_input(books):
 
 
 # This function asks for publication year until the input is valid.
-def get_year_input():
+def get_year_input(reader=None, writer=None):
+    reader = reader or input
+    writer = writer or print
+
     # Keep asking for year until the user enters numbers only.
     while True:
         # Ask the user to type a publication year.
-        year_input = input("Enter publication year: ").strip()
+        year_input = reader("Enter publication year: ").strip()
         # Check if year input contains digits only.
         if not year_input.isdigit():
             # Show message for invalid year input.
-            print("Invalid year. Please enter numbers only.")
+            writer("Invalid year. Please enter numbers only.")
             continue
         # Convert valid year text to an integer and return it.
         return int(year_input)
 
 
 # This function asks for author name until the input is valid.
-def get_author_input():
+def get_author_input(reader=None, writer=None):
+    reader = reader or input
+    writer = writer or print
+
     # Keep asking for author until the user enters a valid name.
     while True:
         # Ask the user to type the author's name.
-        author = input("Enter author name: ").strip()
+        author = reader("Enter author name: ").strip()
         # Check if author input is empty.
         if not author:
             # Show message if author is empty.
-            print("Author cannot be empty.")
+            writer("Author cannot be empty.")
             continue
         # Check if author has invalid characters.
         if not is_valid_author(author):
             # Show message if author format is invalid.
-            print("Invalid author. Use only letters, spaces, and full stops.")
+            writer("Invalid author. Use only letters, spaces, and full stops.")
             continue
         # Return author when valid.
         return author
 
 
-# This function runs the complete data-entry process.
-def main():
-    # Create an empty list to store all book objects.
+def collect_books(reader=None, writer=None):
+    reader = reader or input
+    writer = writer or print
     books = []
 
-    # Keep asking for books until the user says they are done.
     while True:
-        # Ask for title and determine whether the user chose to finish.
-        title, done = get_title_input(books)
-        # Stop the loop if user chose to finish while in duplicate-title flow.
+        title, done = get_title_input(books, reader, writer)
         if done:
-            break
+            return books
 
-        # Ask for valid year and author details.
-        year = get_year_input()
-        author = get_author_input()
+        year = get_year_input(reader, writer)
+        author = get_author_input(reader, writer)
+        books.append(Book(title, year, author))
 
-        # Create a Book object from the user input.
-        book = Book(title, year, author)
-        # Add the new book object to the list.
-        books.append(book)
+        if ask_yes_no("Have you completed entering the data? (yes/no): ", reader, writer):
+            return books
 
-        # Ask if the user is finished entering data.
-        done = ask_yes_no("Have you completed entering the data? (yes/no): ")
-        # Stop the loop if the user says yes.
-        if done:
-            break
 
-    # Print a heading before showing all entered books.
-    print("\nBooks entered:")
-    # Loop through every book in the list.
+def format_books(books):
+    lines = ["", "Books entered:"]
     for item in books:
-        # Print each book's information.
-        item.get_info()
-        # Print a blank line for readability.
-        print()
+        lines.append(item.get_info())
+        lines.append("")
+    return lines
+
+
+# This function runs the complete data-entry process.
+def main():
+    books = collect_books()
+    for line in format_books(books):
+        print(line)
 
 
 # This block runs only when this file is run directly.
