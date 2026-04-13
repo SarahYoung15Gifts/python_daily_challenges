@@ -2,7 +2,7 @@ from importlib import util
 from pathlib import Path
 
 
-MODULE_PATH = Path(__file__).with_name("frequency_calculator.py")
+MODULE_PATH = Path(__file__).resolve().parents[1] / "day_8_frequency_calculator" / "frequency_calculator.py"
 
 
 def load_module():

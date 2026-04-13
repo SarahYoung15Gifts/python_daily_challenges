@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 
-MODULE_PATH = Path(__file__).with_name("day_12_modular_validator.py")
+MODULE_PATH = Path(__file__).resolve().parents[1] / "day_12_modular_validator" / "day_12_modular_validator.py"
 
 
 def load_module():

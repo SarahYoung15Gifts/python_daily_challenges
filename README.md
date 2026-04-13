@@ -20,17 +20,14 @@ Run all current tests:
 
 The shared test convention is:
 
-- Put each test file in the same day folder as the code it covers.
-- Name every test file test_<module>.py.
+- Put test files in the top-level tests folder.
+- Name every test file test\_<module>.py.
 - Run the full suite from the repo root with `./.venv/bin/python -m pytest -q` or `./run_all_tests.sh`.
 
 Current repo-wide test coverage includes day 1, day 2, day 6, day 8, day 10, day 12, day 13, day 15, day 16, day 17, and day 19.
 
-Run only day 15 tests:
-./run_day_15_tests.sh
-
 Run pytest directly for a specific test file:
-./.venv/bin/python -m pytest -q day_15_library_system/test_day_15_library_system.py
+./.venv/bin/python -m pytest -q tests/test_day_15_library_system.py
 
 ## Naming And Style
 

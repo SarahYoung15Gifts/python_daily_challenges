@@ -3,11 +3,11 @@ from pathlib import Path
 
 import pytest
 
-# script to run test: python -m pytest -q test_day_15_library_system.py
+# script to run test: python -m pytest -q tests/test_day_15_library_system.py
 
 
-# Load the target script as a module from the local directory.
-MODULE_PATH = Path(__file__).with_name("day_15_library_system.py")
+# Load the target script as a module from the day_15 directory.
+MODULE_PATH = Path(__file__).resolve().parents[1] / "day_15_library_system" / "day_15_library_system.py"
 SPEC = util.spec_from_file_location("day15_module", MODULE_PATH)
 DAY15 = util.module_from_spec(SPEC)
 assert SPEC is not None and SPEC.loader is not None
