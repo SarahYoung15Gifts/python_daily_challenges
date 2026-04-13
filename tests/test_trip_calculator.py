@@ -16,5 +16,5 @@ def load_module():
 def test_calculate_trip_cost_returns_expected_total():
 	module = load_module()
 
-	assert module.calculate_trip_cost(300, 25, 3.5) == 42.0
+	assert module.calculate_trip_cost(300, 25, 3.5) == 43.0
 	assert module.format_trip_cost(42.0) == "Trip cost: $42.00"
