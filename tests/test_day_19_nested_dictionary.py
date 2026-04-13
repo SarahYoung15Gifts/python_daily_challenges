@@ -2,7 +2,7 @@ from importlib import util
 from pathlib import Path
 
 
-MODULE_PATH = Path(__file__).with_name("day_19_nested_dictionary.py")
+MODULE_PATH = Path(__file__).resolve().parents[1] / "day_19_nested_dictionary" / "day_19_nested_dictionary.py"
 
 
 def load_module():
